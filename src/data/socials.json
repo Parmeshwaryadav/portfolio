@@ -1,0 +1,24 @@
+{
+  "socials": [
+    {
+      "name": "X",
+      "href": "https://x.com/parmeshwar342",
+      "icon": "X"
+    },
+    {
+      "name": "LinkedIn",
+      "href": "https://linkedin.com/in/parmeshwaryadav",
+      "icon": "linkedin"
+    },
+    {
+      "name": "GitHub",
+      "href": "https://github.com/parmeshwaryadav",
+      "icon": "github"
+    },
+    {
+      "name": "Email",
+      "href": "mailto:yadavparmeshwar342@gmail.com",
+      "icon": "mail"
+    }
+  ]
+}
