@@ -1,11 +1,12 @@
 {
-  "Experience": [
+  "experience": [
     {
-      "name": "Morgan Stanley | Investment Management (Consultant)",
-      "href": "https://www.dbs.com.sg",
+      "company": "Morgan Stanley | Investment Management (Consultant)",
+      "link": "https://www.morganstanley/im.com",
       "title": "Analyst",
       "logo": "./morganstanley.png",
-      "start": "Jul 2023"
+      "duration": "July 2023 - Present",
+      "location": "Mumbai, India"
     }
   ]
 }
