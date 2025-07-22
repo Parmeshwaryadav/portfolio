@@ -1,6 +1,7 @@
 import Socials from "@/components/Socials";
 import WorkExperience from "@/components/WorkExperience";
 import Image from "next/image";
+import Projects from "@/components/Projects";
 
 export default function Home() {
   return (
@@ -11,8 +12,8 @@ export default function Home() {
             className="object-cover rounded-sm transform transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1"
             src="/profile-image.webp"
             alt="profile-image"
-            width={150}
-            height={150}
+            width={160}
+            height={160}
           />
         </div>
         <div className="flex max-w-[320px] flex-col sm:max-w-full">
@@ -32,6 +33,7 @@ export default function Home() {
       </section>
 
       <WorkExperience />
+      <Projects />
     </article>
   );
 }

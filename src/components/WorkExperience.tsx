@@ -9,25 +9,27 @@ export default function WorkExperience() {
         {data.experience.map((exp, idx) => (
           <div key={idx} className="flex items-center justify-between">
             {/* Logo */}
-            <div className="mr-3">
-              <img
-                className="rounded-sm"
-                src="/ms_logo.png"
-                alt={exp.company + " logo"}
-                width={55}
-                height={55}
-                loading="lazy"
-              />
+            <div className="mr-3 cursor-pointer">
+              <Link href={exp.link} target="_blank">
+                <img
+                  className="rounded-sm"
+                  src="/ms_logo.png"
+                  alt={exp.company + " logo"}
+                  width={55}
+                  height={55}
+                  loading="lazy"
+                />
+              </Link>
             </div>
             {/* Main Info */}
             <div className="flex flex-col flex-1 min-w-0">
-              <span className="text-lg font-semibold text-white truncate">
+              <span className="text-lg font-semibold truncate">
                 {exp.link ? (
                   <Link
                     href={exp.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:underline"
+                    className=""
                   >
                     {exp.company}
                   </Link>
@@ -35,16 +37,12 @@ export default function WorkExperience() {
                   exp.company
                 )}
               </span>
-              <span className="text-sm text-neutral-300">{exp.title}</span>
+              <span className="text-sm">{exp.title}</span>
             </div>
             {/* Location & Duration */}
             <div className="flex flex-col items-end min-w-[120px] ml-4">
-              <span className="text-base font-medium text-white/90">
-                {exp.location}
-              </span>
-              <span className="text-xs text-neutral-400 mt-1">
-                {exp.duration}
-              </span>
+              <span className="text-base font-medium">{exp.location}</span>
+              <span className="text-xs mt-1">{exp.duration}</span>
             </div>
           </div>
         ))}
