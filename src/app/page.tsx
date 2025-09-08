@@ -5,7 +5,7 @@ import Projects from "@/components/Projects";
 
 export default function Home() {
   return (
-    <article className="mt-8 flex flex-col gap-16 pb-25">
+    <article className="mt-8 flex flex-col gap-13 pb-25">
       <section className="flex flex-col px-8 items-start gap-8 md:flex-row-reverse md:items-center md:justify-between">
         <div className="m-4 group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-500">
           <Image

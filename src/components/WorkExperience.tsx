@@ -3,9 +3,9 @@ import Link from "next/link";
 
 export default function WorkExperience() {
   return (
-    <section className="px-8 flex flex-col mb-10 max-w-3xl">
+    <section className="px-8 flex flex-col max-w-3xl">
       <h1 className="text-2xl font-bold mb-6">Work Experience</h1>
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-4">
         {data.experience.map((exp, idx) => (
           <div key={idx} className="flex items-center justify-between">
             {/* Logo */}
@@ -13,7 +13,7 @@ export default function WorkExperience() {
               <Link href={exp.link} target="_blank">
                 <img
                   className="rounded-sm"
-                  src="/ms_logo.png"
+                  src={exp.logo}
                   alt={exp.company + " logo"}
                   width={55}
                   height={55}

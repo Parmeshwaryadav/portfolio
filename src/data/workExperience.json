@@ -1,11 +1,19 @@
 {
   "experience": [
     {
+      "company": "Brookfield Asset Management",
+      "link": "https://bam.brookfield.com/",
+      "title": "Analyst",
+      "logo": "./brookfield_logo_new.png",
+      "duration": "September 2025 - Present",
+      "location": "Mumbai, India"
+    },
+    {
       "company": "Morgan Stanley | Investment Management",
       "link": "https://www.morganstanley.com/im.us.html",
       "title": "Analyst (Consultant)",
-      "logo": "./morganstanley.png",
-      "duration": "July 2023 - Present",
+      "logo": "./ms_logo.png",
+      "duration": "July 2023 - Spetember 2025",
       "location": "Mumbai, India"
     }
   ]
