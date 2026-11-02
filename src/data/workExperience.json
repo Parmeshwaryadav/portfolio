@@ -3,18 +3,44 @@
     {
       "company": "Brookfield Asset Management",
       "link": "https://bam.brookfield.com/",
-      "title": "Analyst",
-      "logo": "./brookfield_logo_new.png",
-      "duration": "September 2025 - Present",
-      "location": "Mumbai, India"
+      "logo": "/brookfield_logo.png",
+      "logoBg": "#0a3d62",
+      "initial": "B",
+      "roles": [
+        {
+          "title": "Analyst",
+          "duration": "Sep 2025 - Present",
+          "highlights": [
+            "Supporting investment operations and analysis across asset management workflows.",
+            "Building internal tooling and process improvements that keep reporting fast and accurate."
+          ]
+        }
+      ]
     },
     {
       "company": "Morgan Stanley | Investment Management",
       "link": "https://www.morganstanley.com/im.us.html",
-      "title": "Analyst (Consultant)",
-      "logo": "./ms_logo.png",
-      "duration": "July 2023 - Spetember 2025",
-      "location": "Mumbai, India"
+      "logo": "/ms_logo.png",
+      "logoBg": "#002b5c",
+      "initial": "MS",
+      "roles": [
+        {
+          "title": "Analyst (Consultant)",
+          "duration": "Jul 2023 - Sep 2025",
+          "highlights": [
+            "Worked as an analyst consultant within Investment Management, close to data, reporting, and delivery.",
+            "Partnered across teams to ship operational improvements without slowing the desk down."
+          ]
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "On the job",
+      "detail": "Full-stack, in production",
+      "duration": "2023 — Present",
+      "note": "No fancy alumni page — just the stack I keep learning while shipping: TypeScript, Next.js, and the messy middle of real production work."
     }
   ]
 }

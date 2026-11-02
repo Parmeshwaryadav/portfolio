@@ -1,52 +1,143 @@
-import data from "../data/workexperience.json";
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
+import data from "@/data/workExperience.json";
+import { cn } from "@/lib/utils";
+import Reveal from "./Reveal";
 
 export default function WorkExperience() {
+  const [tab, setTab] = useState<"work" | "education">("work");
+
   return (
-    <section className="px-8 flex flex-col max-w-3xl">
-      <h1 className="text-2xl font-bold mb-6">Work Experience</h1>
-      <div className="flex flex-col gap-4">
-        {data.experience.map((exp, idx) => (
-          <div key={idx} className="flex items-center justify-between">
-            {/* Logo */}
-            <div className="mr-3 cursor-pointer">
-              <Link href={exp.link} target="_blank">
-                <img
-                  className="rounded-sm"
-                  src={exp.logo}
-                  alt={exp.company + " logo"}
-                  width={55}
-                  height={55}
-                  loading="lazy"
+    <Reveal>
+      <section>
+        <div className="relative mb-6 grid grid-cols-2 rounded-full bg-muted p-1 text-sm">
+          {(["work", "education"] as const).map((item) => (
+            <button
+              key={item}
+              type="button"
+              onClick={() => setTab(item)}
+              className={cn(
+                "relative z-10 cursor-pointer rounded-full py-2 capitalize transition-colors",
+                tab === item
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
+              )}
+            >
+              {tab === item && (
+                <motion.span
+                  layoutId="work-tab"
+                  className="absolute inset-0 -z-10 rounded-full bg-background shadow-sm"
+                  transition={{ type: "spring", stiffness: 380, damping: 32 }}
                 />
-              </Link>
-            </div>
-            {/* Main Info */}
-            <div className="flex flex-col flex-1 min-w-0">
-              <span className="text-lg font-semibold truncate">
-                {exp.link ? (
-                  <Link
-                    href={exp.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className=""
+              )}
+              {item}
+            </button>
+          ))}
+        </div>
+
+        <div className="rounded-2xl border border-border px-4 py-5 sm:px-5">
+          <AnimatePresence mode="wait">
+            {tab === "work" ? (
+              <motion.ol
+                key="work"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.22 }}
+              >
+                {data.experience.map((exp, idx) => (
+                  <li
+                    key={exp.company}
+                    className="relative flex gap-4 pb-8 last:pb-0"
                   >
-                    {exp.company}
-                  </Link>
-                ) : (
-                  exp.company
-                )}
-              </span>
-              <span className="text-sm">{exp.title}</span>
-            </div>
-            {/* Location & Duration */}
-            <div className="flex flex-col items-end min-w-[120px] ml-4">
-              <span className="text-base font-medium">{exp.location}</span>
-              <span className="text-xs mt-1">{exp.duration}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+                    {idx !== data.experience.length - 1 && (
+                      <span className="absolute top-12 bottom-0 left-5 w-px bg-border" />
+                    )}
+                    <Link
+                      href={exp.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative z-10 mt-0.5 grid size-10 shrink-0 place-items-center rounded-full text-[11px] font-semibold tracking-wide text-white shadow-sm"
+                      style={{ background: exp.logoBg }}
+                      aria-label={exp.company}
+                    >
+                      {exp.initial}
+                    </Link>
+                    <div className="min-w-0 flex-1 pt-1">
+                      <h2 className="text-[15px] font-semibold">
+                        <Link
+                          href={exp.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:underline"
+                        >
+                          {exp.company}
+                        </Link>
+                      </h2>
+                      {exp.roles.map((role) => (
+                        <div key={role.title} className="mt-2 first:mt-0.5">
+                          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                            <p className="text-sm text-muted-foreground">
+                              {role.title}
+                            </p>
+                            <p className="text-sm text-muted-foreground">
+                              {role.duration}
+                            </p>
+                          </div>
+                          <ul className="mt-2 space-y-1.5 text-sm leading-relaxed text-muted-foreground">
+                            {role.highlights.map((item) => (
+                              <li key={item} className="flex gap-2">
+                                <span className="mt-[9px] size-1 shrink-0 rounded-full bg-muted-foreground/70" />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </li>
+                ))}
+              </motion.ol>
+            ) : (
+              <motion.div
+                key="education"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.22 }}
+                className="flex gap-4"
+              >
+                <div className="grid size-10 shrink-0 place-items-center rounded-full border border-border bg-muted text-sm font-semibold">
+                  ∞
+                </div>
+                <div className="min-w-0 flex-1 pt-1">
+                  {data.education.map((item) => (
+                    <div key={item.school}>
+                      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                        <h2 className="text-[15px] font-semibold">
+                          {item.school}
+                        </h2>
+                        <p className="text-sm text-muted-foreground">
+                          {item.duration}
+                        </p>
+                      </div>
+                      <p className="text-sm text-muted-foreground">
+                        {item.detail}
+                      </p>
+                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                        {item.note}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </section>
+    </Reveal>
   );
 }

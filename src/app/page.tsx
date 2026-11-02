@@ -1,39 +1,72 @@
 import Socials from "@/components/Socials";
 import WorkExperience from "@/components/WorkExperience";
-import Image from "next/image";
 import Projects from "@/components/Projects";
+import HeroPhoto from "@/components/HeroPhoto";
+import RecentNotes from "@/components/RecentNotes";
+import Skills from "@/components/Skills";
+import Reveal from "@/components/Reveal";
+import { FileText } from "lucide-react";
 
 export default function Home() {
   return (
-    <article className="mt-8 flex flex-col gap-13 pb-25">
-      <section className="flex flex-col px-8 items-start gap-8 md:flex-row-reverse md:items-center md:justify-between">
-        <div className="m-4 group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-500">
-          <Image
-            className="object-cover rounded-sm transform transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-1"
-            src="/profile-image.webp"
-            alt="profile-image"
-            width={160}
-            height={160}
-          />
-        </div>
-        <div className="flex max-w-[320px] flex-col sm:max-w-full">
-          <h1 className="text-3xl font-bold">Hi, I'm Parmeshwar👋</h1>
-          <p className="py-2">
-            Software engineer with a passion for building web applications.
+    <article className="flex flex-col gap-16 pb-8 pt-4 sm:gap-[72px] sm:pt-6">
+      <section className="flex flex-col items-start gap-10 md:flex-row md:items-center md:justify-between md:gap-8">
+        <Reveal className="max-w-[24rem]">
+          <h1 className="font-mono text-[2rem] font-bold leading-[1.15] tracking-tight text-balance sm:text-[2.5rem]">
+            hi parmeshwar
+            <br />
+            <span className="whitespace-nowrap">
+              here.{" "}
+              <span className="inline-block origin-[70%_70%] animate-[wave_1.6s_ease-in-out_infinite]">
+                👋
+              </span>
+            </span>
+          </h1>
+          <p className="mt-4 text-[17px] font-medium">
+            software engineer from Mumbai 🇮🇳
           </p>
-
-          <h2 className="mt-4 font-bold">About me</h2>
-          <p>I love playing Football.</p>
-
-          <section className="mt-4">
-            <p>You can connect with me on my below socials</p>
+          <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
+            Analyst by profession, full-stack by curiosity. I build calm web
+            tools — and I still play football on Sundays.
+          </p>
+          <p className="mt-5 text-[15px] leading-relaxed">
+            For work, start on{" "}
+            <a
+              href="https://linkedin.com/in/parmeshwaryadav"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hairline"
+            >
+              LinkedIn
+            </a>
+            .
+            <br />
+            For a kickabout, the{" "}
+            <a href="mailto:yadavparmeshwar342@gmail.com" className="hairline">
+              inbox
+            </a>{" "}
+            is open.
+          </p>
+          <div className="mt-7 flex flex-wrap items-center gap-2">
+            <a
+              href="https://linkedin.com/in/parmeshwaryadav"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-border px-3.5 py-2 text-sm font-medium press hover:bg-muted"
+            >
+              Resume
+              <FileText className="size-3.5" />
+            </a>
             <Socials />
-          </section>
-        </div>
+          </div>
+        </Reveal>
+        <HeroPhoto />
       </section>
 
       <WorkExperience />
       <Projects />
+      <Skills />
+      <RecentNotes />
     </article>
   );
 }

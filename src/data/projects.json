@@ -2,46 +2,28 @@
   "projects": [
     {
       "name": "Chat App",
-      "description": "A chat app built with Next.js, TailwindCSS",
-      "image": "/chat-app.png",
-      "tags": ["NextJS", "TailwindCSS", "TypeScript", "React", "Shadcn UI"],
+      "category": "web",
+      "description": "A calm, real-time chat surface built with Next.js and Tailwind — less chrome, more conversation.",
+      "image": "/projects/chat-app.svg",
+      "tags": ["Next.js", "TypeScript", "React", "Tailwind", "shadcn/ui"],
       "links": [
         {
-          "name": "Website",
-          "href": "",
-          "icon": "globe"
-        },
-        {
           "name": "Source",
-          "href": "",
-          "icon": "github"
-        },
-        {
-          "name": "Source (UI)",
-          "href": "",
+          "href": "https://github.com/parmeshwaryadav",
           "icon": "github"
         }
       ]
     },
     {
-      "name": "Personal Finance Web App",
-      "description": "A personal finance app that helped manage my finances",
-      "image": "/personal-finance-app",
-      "tags": ["NextJS", "TailwindCSS", "TypeScript", "React", "Shadcn UI"],
+      "name": "Personal Finance",
+      "category": "tools",
+      "description": "A private ledger for tracking spend, savings, and the quiet math of a month.",
+      "image": "/projects/finance-app.svg",
+      "tags": ["Next.js", "TypeScript", "React", "Tailwind"],
       "links": [
         {
-          "name": "Website",
-          "href": "",
-          "icon": "globe"
-        },
-        {
           "name": "Source",
-          "href": "",
-          "icon": "github"
-        },
-        {
-          "name": "Source (UI)",
-          "href": "",
+          "href": "https://github.com/parmeshwaryadav",
           "icon": "github"
         }
       ]

@@ -1,0 +1,20 @@
+{
+  "notes": [
+    {
+      "slug": "weekend-football",
+      "title": "Why I still play football on Sundays",
+      "excerpt": "A 90-minute game resets the week better than any productivity system. Here's the version I keep coming back to.",
+      "date": "2026-03-12",
+      "readTime": "3 min",
+      "tags": ["Life", "Football"]
+    },
+    {
+      "slug": "quiet-tools",
+      "title": "The tools I actually keep open",
+      "excerpt": "A short list of software that survived the hype cycle and still earns a place on my desktop.",
+      "date": "2026-01-28",
+      "readTime": "4 min",
+      "tags": ["Software", "Craft"]
+    }
+  ]
+}
