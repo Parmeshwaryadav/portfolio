@@ -23,11 +23,10 @@ export default function Home() {
             </span>
           </h1>
           <p className="mt-4 text-[17px] font-medium">
-            software engineer from Mumbai 🇮🇳
+            Mumbai 🇮🇳
           </p>
           <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
-            Analyst by profession, full-stack by curiosity. I build calm web
-            tools — and I still play football on Sundays.
+          Business Analyst by profession, tech enthusiast and tinkerer by obsession. Building web tools to automate my own life (and yours), while trying not to pull a muscle playing football.
           </p>
           <p className="mt-5 text-[15px] leading-relaxed">
             For work, start on{" "}

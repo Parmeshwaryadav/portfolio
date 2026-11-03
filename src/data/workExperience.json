@@ -25,11 +25,26 @@
       "initial": "MS",
       "roles": [
         {
-          "title": "Analyst (Consultant)",
-          "duration": "Jul 2023 - Sep 2025",
+          "title": "Associate Business Analyst & CRM",
+          "duration": "Jun 2023 - Sep 2025",
           "highlights": [
-            "Worked as an analyst consultant within Investment Management, close to data, reporting, and delivery.",
+            "Worked as an Business Analytics & CRM within Investment Management, close to data, reporting, and delivery.",
             "Partnered across teams to ship operational improvements without slowing the desk down."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Bureau Veritas",
+      "link": "https://www.bureauveritas.com/",
+      "logo": "/bv_logo.png",
+      "logoBg": "#002b5c",
+      "initial": "BV",
+      "roles": [
+        {
+          "title": "Salesforce Administrator",
+          "duration": "Jul 2021 - May 2023",
+          "highlights": [
           ]
         }
       ]
@@ -37,10 +52,11 @@
   ],
   "education": [
     {
-      "school": "On the job",
-      "detail": "Full-stack, in production",
-      "duration": "2023 — Present",
-      "note": "No fancy alumni page — just the stack I keep learning while shipping: TypeScript, Next.js, and the messy middle of real production work."
+      "school": "Mumbai University",
+      "link": "https://www.mu.ac.in/",
+      "detail": "Bachelor of Management Studies (BMS)",
+      "duration": "2017 — 2020",
+      "note": ""
     }
   ]
 }
