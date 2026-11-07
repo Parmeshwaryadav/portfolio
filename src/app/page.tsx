@@ -4,6 +4,7 @@ import Projects from "@/components/Projects";
 import HeroPhoto from "@/components/HeroPhoto";
 import RecentNotes from "@/components/RecentNotes";
 import Skills from "@/components/Skills";
+import CurrentlyReading from "@/components/CurrentlyReading";
 import Reveal from "@/components/Reveal";
 import { FileText } from "lucide-react";
 
@@ -28,6 +29,7 @@ export default function Home() {
           <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-muted-foreground">
           Business Analyst by profession, tech enthusiast and tinkerer by obsession. Building web tools to automate my own life (and yours), while trying not to pull a muscle playing football.
           </p>
+          <CurrentlyReading />
           <p className="mt-5 text-[15px] leading-relaxed">
             For work, start on{" "}
             <a
@@ -40,7 +42,7 @@ export default function Home() {
             </a>
             .
             <br />
-            For a kickabout, the{" "}
+            For a kickabout ⚽, the{" "}
             <a href="mailto:yadavparmeshwar342@gmail.com" className="hairline">
               inbox
             </a>{" "}
