@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Search, X } from "lucide-react";
 import notes from "@/data/notes.json";
 import PostList from "./PostList";
@@ -13,6 +14,7 @@ const allTags = Array.from(
 export default function BlogExplorer() {
   const [query, setQuery] = useState("");
   const [activeTag, setActiveTag] = useState<string | null>(null);
+  const reduce = useReducedMotion();
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -46,7 +48,7 @@ export default function BlogExplorer() {
             type="button"
             onClick={() => setQuery("")}
             aria-label="Clear search"
-            className="absolute top-1/2 right-2 grid size-7 -translate-y-1/2 cursor-pointer place-items-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            className="press absolute top-1/2 right-2 grid size-7 -translate-y-1/2 cursor-pointer place-items-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
           >
             <X className="size-3.5" />
           </button>
@@ -59,7 +61,7 @@ export default function BlogExplorer() {
           onClick={() => setActiveTag(null)}
           aria-pressed={activeTag === null}
           className={cn(
-            "cursor-pointer rounded-full border px-3 py-1 text-xs transition-colors",
+            "press cursor-pointer rounded-full border px-3 py-1 text-xs",
             activeTag === null
               ? "border-foreground bg-foreground text-background"
               : "border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"
@@ -74,7 +76,7 @@ export default function BlogExplorer() {
             onClick={() => setActiveTag(activeTag === tag ? null : tag)}
             aria-pressed={activeTag === tag}
             className={cn(
-              "cursor-pointer rounded-full border px-3 py-1 text-xs transition-colors",
+              "press cursor-pointer rounded-full border px-3 py-1 text-xs",
               activeTag === tag
                 ? "border-foreground bg-foreground text-background"
                 : "border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"
@@ -90,7 +92,17 @@ export default function BlogExplorer() {
       </p>
 
       <div className="mt-2">
-        <PostList notes={filtered} />
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.div
+            key={activeTag ?? "all"}
+            initial={reduce ? false : { opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduce ? undefined : { opacity: 0 }}
+            transition={{ duration: reduce ? 0 : 0.18 }}
+          >
+            <PostList notes={filtered} />
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>
   );

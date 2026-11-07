@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
 import CommandMenu from "@/components/CommandMenu";
+import { site } from "@/lib/site";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,9 +21,51 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Parmeshwar Yadav",
-  description:
-    "Software engineer in Mumbai. Analyst by profession, full-stack by curiosity.",
+  metadataBase: new URL(site.url),
+  title: {
+    default: `${site.name} — ${site.role}`,
+    template: `%s — ${site.name}`,
+  },
+  description: site.description,
+  keywords: [
+    "Parmeshwar Yadav",
+    "portfolio",
+    "business analyst",
+    "web tools",
+    "React",
+    "Next.js",
+    "TypeScript",
+  ],
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: site.url,
+    siteName: site.name,
+    title: `${site.name} — ${site.role}`,
+    description: site.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} — ${site.role}`,
+    description: site.description,
+  },
+};
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: site.name,
+  url: site.url,
+  email: `mailto:${site.email}`,
+  jobTitle: "Business Analyst",
+  description: site.description,
+  sameAs: [site.links.github, site.links.linkedin, site.links.goodreads],
 };
 
 export default function RootLayout({
@@ -35,6 +78,10 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${plexMono.variable} min-h-svh antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+        />
         <Providers>
           <CommandMenu />
           <div className="mx-auto flex min-h-svh max-w-2xl flex-col px-6 sm:px-8">

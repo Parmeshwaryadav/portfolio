@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import ProjectExplorer from "@/components/ProjectExplorer";
 import Reveal from "@/components/Reveal";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Side projects, tools, and experiments built by Parmeshwar Yadav.",
+};
 
 export default function ProjectPage() {
   return (

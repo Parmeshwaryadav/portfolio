@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Socials from "@/components/Socials";
+import CopyEmail from "@/components/CopyEmail";
 import Reveal from "@/components/Reveal";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Work chats, side projects, or a weekend football game — the inbox is open.",
+};
 
 export default function ContactPage() {
   return (
@@ -12,12 +20,7 @@ export default function ContactPage() {
           Work chats, side projects, or a weekend football game. The inbox is
           open.
         </p>
-        <a
-          href="mailto:yadavparmeshwar342@gmail.com"
-          className="mt-8 inline-block text-lg hairline"
-        >
-          yadavparmeshwar342@gmail.com
-        </a>
+        <CopyEmail />
         <div className="mt-6">
           <Socials />
         </div>

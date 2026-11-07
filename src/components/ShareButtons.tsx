@@ -31,7 +31,7 @@ export default function ShareButtons({ title }: { title: string }) {
       <button
         type="button"
         onClick={copy}
-        className="inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+        className="press inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
       >
         {copied ? <Check className="size-3.5" /> : <Link2 className="size-3.5" />}
         {copied ? "copied" : "copy link"}
@@ -41,7 +41,7 @@ export default function ShareButtons({ title }: { title: string }) {
         href={`https://x.com/intent/tweet?text=${shareText}&url=${shareUrl}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+        className="press inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
       >
         <Twitter className="size-3.5" /> X
       </a>
@@ -50,7 +50,7 @@ export default function ShareButtons({ title }: { title: string }) {
         href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+        className="press inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
       >
         <Linkedin className="size-3.5" /> LinkedIn
       </a>

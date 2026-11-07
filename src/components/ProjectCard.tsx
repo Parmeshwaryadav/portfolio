@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Github, Globe } from "lucide-react";
 
@@ -22,11 +23,13 @@ export default function ProjectCard({ project }: { project: Project }) {
           rel="noopener noreferrer"
           className="press mb-4 block overflow-hidden rounded-xl border border-border bg-muted transition-[border-color,box-shadow] duration-300 ease-soft group-hover:border-foreground/25 group-hover:shadow-[0_12px_30px_-18px_rgba(0,0,0,0.45)]"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={project.image}
             alt={project.name}
-            className="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+            width={640}
+            height={400}
+            unoptimized={project.image.endsWith(".svg")}
+            className="aspect-[16/10] w-full object-cover transition duration-500 group-hover:scale-[1.03] motion-reduce:transition-none"
           />
         </Link>
       )}
@@ -56,7 +59,7 @@ export default function ProjectCard({ project }: { project: Project }) {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-md border border-border px-3 py-1.5 text-xs font-medium transition-colors hover:bg-muted"
+                className="press inline-flex items-center gap-1.5 rounded-md border border-border px-3 py-1.5 text-xs font-medium transition-colors hover:bg-muted hover:border-foreground/30"
               >
                 {link.icon === "github" ? (
                   <Github className="size-3.5" />

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import notes from "@/data/notes.json";
@@ -7,7 +8,7 @@ import ShareButtons from "@/components/ShareButtons";
 import { tagToSlug } from "@/lib/tags";
 
 const bodies: Record<string, string[]> = {
-  "weekend-football": [
+  football: [
     "Most of my week lives in screens. Sunday does not.",
     "A proper game is still the cleanest reset I know: ninety minutes, one ball, no Slack. The legs complain on Monday. The head does not.",
     "I treat it the way I treat good engineering — show up, do the simple thing well, leave a little better than I arrived.",
@@ -21,6 +22,36 @@ const bodies: Record<string, string[]> = {
 
 export function generateStaticParams() {
   return notes.notes.map((note) => ({ slug: note.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const note = notes.notes.find((item) => item.slug === slug);
+
+  if (!note) {
+    return { title: "Post not found" };
+  }
+
+  return {
+    title: note.title,
+    description: note.excerpt,
+    openGraph: {
+      type: "article",
+      title: note.title,
+      description: note.excerpt,
+      publishedTime: note.date,
+      authors: ["Parmeshwar Yadav"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: note.title,
+      description: note.excerpt,
+    },
+  };
 }
 
 export default async function NotePage({

@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import BlogExplorer from "@/components/BlogExplorer";
 import Reveal from "@/components/Reveal";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description:
+    "Short notes on building, tools, and the rest of the week — by Parmeshwar Yadav.",
+};
 
 export default function BlogPage() {
   return (

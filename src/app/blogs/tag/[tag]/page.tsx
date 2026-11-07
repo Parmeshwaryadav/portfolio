@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import notes from "@/data/notes.json";
@@ -5,9 +6,43 @@ import PostList from "@/components/PostList";
 import Reveal from "@/components/Reveal";
 import { tagToSlug } from "@/lib/tags";
 
+function tagNotes(tag: string) {
+  return notes.notes.filter((note) =>
+    note.tags.some((item) => tagToSlug(item) === tag)
+  );
+}
+
+function tagLabel(tag: string) {
+  return (
+    notes.notes
+      .flatMap((note) => note.tags)
+      .find((item) => tagToSlug(item) === tag) ?? tag
+  );
+}
+
 export function generateStaticParams() {
   const tags = new Set(notes.notes.flatMap((note) => note.tags));
   return Array.from(tags).map((tag) => ({ tag: tagToSlug(tag) }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ tag: string }>;
+}): Promise<Metadata> {
+  const { tag } = await params;
+  const filtered = tagNotes(tag);
+
+  if (filtered.length === 0) {
+    return { title: "Tag not found" };
+  }
+
+  const label = tagLabel(tag);
+
+  return {
+    title: `Posts tagged “${label}”`,
+    description: `Notes tagged “${label}” by Parmeshwar Yadav.`,
+  };
 }
 
 export default async function TagPage({
@@ -16,16 +51,11 @@ export default async function TagPage({
   params: Promise<{ tag: string }>;
 }) {
   const { tag } = await params;
-  const filtered = notes.notes.filter((note) =>
-    note.tags.some((item) => tagToSlug(item) === tag)
-  );
+  const filtered = tagNotes(tag);
 
   if (filtered.length === 0) notFound();
 
-  const label =
-    filtered
-      .flatMap((note) => note.tags)
-      .find((item) => tagToSlug(item) === tag) ?? tag;
+  const label = tagLabel(tag);
 
   return (
     <article className="pb-8 pt-4 sm:pt-6">

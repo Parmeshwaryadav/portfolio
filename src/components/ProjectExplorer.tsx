@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import projects from "@/data/projects.json";
 import ProjectCard from "./ProjectCard";
 import { cn } from "@/lib/utils";
@@ -13,6 +13,7 @@ const filters = ["all", ...categories];
 
 export default function ProjectExplorer() {
   const [active, setActive] = useState("all");
+  const reduce = useReducedMotion();
 
   const visible = useMemo(
     () =>
@@ -32,7 +33,7 @@ export default function ProjectExplorer() {
             onClick={() => setActive(filter)}
             aria-pressed={active === filter}
             className={cn(
-              "cursor-pointer rounded-full border px-3.5 py-1.5 text-sm capitalize transition-colors",
+              "press cursor-pointer rounded-full border px-3.5 py-1.5 text-sm capitalize",
               active === filter
                 ? "border-foreground bg-foreground text-background"
                 : "border-border text-muted-foreground hover:border-foreground/40 hover:text-foreground"
@@ -43,16 +44,16 @@ export default function ProjectExplorer() {
         ))}
       </div>
 
-      <motion.div layout className="grid gap-10 sm:grid-cols-2">
+      <motion.div layout={!reduce} className="grid gap-10 sm:grid-cols-2">
         <AnimatePresence mode="popLayout">
-          {visible.map((project) => (
+          {visible.map((project, index) => (
             <motion.div
               key={project.name}
-              layout
-              initial={{ opacity: 0, y: 8 }}
+              layout={!reduce}
+              initial={reduce ? false : { opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.2 }}
+              exit={reduce ? undefined : { opacity: 0, y: -8 }}
+              transition={{ duration: reduce ? 0 : 0.2, delay: reduce ? 0 : index * 0.03 }}
             >
               <ProjectCard project={project} />
             </motion.div>

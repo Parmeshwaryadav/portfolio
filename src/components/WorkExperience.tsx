@@ -2,13 +2,18 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import data from "@/data/workExperience.json";
 import { cn } from "@/lib/utils";
 import Reveal from "./Reveal";
 
 export default function WorkExperience() {
   const [tab, setTab] = useState<"work" | "education">("work");
+  const reduce = useReducedMotion();
+
+  const transition = { duration: reduce ? 0 : 0.22 };
+  const initial = reduce ? false : { opacity: 0, y: 8 };
+  const exit = reduce ? undefined : { opacity: 0, y: -8 };
 
   return (
     <Reveal>
@@ -20,19 +25,22 @@ export default function WorkExperience() {
               type="button"
               onClick={() => setTab(item)}
               className={cn(
-                "relative z-10 cursor-pointer rounded-full py-2 capitalize transition-colors",
+                "press relative z-10 cursor-pointer rounded-full py-2 capitalize",
                 tab === item
                   ? "text-foreground"
                   : "text-muted-foreground hover:text-foreground"
               )}
             >
-              {tab === item && (
-                <motion.span
-                  layoutId="work-tab"
-                  className="absolute inset-0 -z-10 rounded-full bg-background shadow-sm"
-                  transition={{ type: "spring", stiffness: 380, damping: 32 }}
-                />
-              )}
+              {tab === item &&
+                (reduce ? (
+                  <span className="absolute inset-0 -z-10 rounded-full bg-background shadow-sm" />
+                ) : (
+                  <motion.span
+                    layoutId="work-tab"
+                    className="absolute inset-0 -z-10 rounded-full bg-background shadow-sm"
+                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                  />
+                ))}
               {item}
             </button>
           ))}
@@ -43,10 +51,10 @@ export default function WorkExperience() {
             {tab === "work" ? (
               <motion.ol
                 key="work"
-                initial={{ opacity: 0, y: 8 }}
+                initial={initial}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.22 }}
+                exit={exit}
+                transition={transition}
               >
                 {data.experience.map((exp, idx) => (
                   <li
@@ -60,7 +68,7 @@ export default function WorkExperience() {
                       href={exp.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative z-10 mt-0.5 grid size-10 shrink-0 place-items-center rounded-full text-[11px] font-semibold tracking-wide text-white shadow-sm"
+                      className="relative z-10 mt-0.5 grid size-10 shrink-0 place-items-center rounded-full text-[11px] font-semibold tracking-wide text-white shadow-sm transition-transform duration-300 ease-soft hover:scale-105 motion-reduce:transition-none"
                       style={{ background: exp.logoBg }}
                       aria-label={exp.company}
                     >
@@ -72,7 +80,7 @@ export default function WorkExperience() {
                           href={exp.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="hover:underline"
+                          className="link-underline"
                         >
                           {exp.company}
                         </Link>
@@ -87,14 +95,16 @@ export default function WorkExperience() {
                               {role.duration}
                             </p>
                           </div>
-                          <ul className="mt-2 space-y-1.5 text-sm leading-relaxed text-muted-foreground">
-                            {role.highlights.map((item) => (
-                              <li key={item} className="flex gap-2">
-                                <span className="mt-[9px] size-1 shrink-0 rounded-full bg-muted-foreground/70" />
-                                <span>{item}</span>
-                              </li>
-                            ))}
-                          </ul>
+                          {role.highlights.length > 0 && (
+                            <ul className="mt-2 space-y-1.5 text-sm leading-relaxed text-muted-foreground">
+                              {role.highlights.map((item) => (
+                                <li key={item} className="flex gap-2">
+                                  <span className="mt-[9px] size-1 shrink-0 rounded-full bg-muted-foreground/70" />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -104,10 +114,10 @@ export default function WorkExperience() {
             ) : (
               <motion.div
                 key="education"
-                initial={{ opacity: 0, y: 8 }}
+                initial={initial}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.22 }}
+                exit={exit}
+                transition={transition}
                 className="flex gap-4"
               >
                 <div className="grid size-10 shrink-0 place-items-center rounded-full border border-border bg-muted text-sm font-semibold">
@@ -127,9 +137,11 @@ export default function WorkExperience() {
                       <p className="text-sm text-muted-foreground">
                         {item.detail}
                       </p>
-                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                        {item.note}
-                      </p>
+                      {item.note && (
+                        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                          {item.note}
+                        </p>
+                      )}
                     </div>
                   ))}
                 </div>

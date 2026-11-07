@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { Command } from "cmdk";
 import { useTheme } from "next-themes";
@@ -39,6 +40,7 @@ export default function CommandMenu() {
   const router = useRouter();
   const { resolvedTheme, setTheme } = useTheme();
   const inputRef = useRef<HTMLInputElement>(null);
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -83,22 +85,32 @@ export default function CommandMenu() {
     }
   }, []);
 
-  if (!open) return null;
-
   return (
-    <div className="fixed inset-0 z-[100] flex items-start justify-center px-4 pt-[12vh]">
-      <button
-        type="button"
-        aria-label="Close command menu"
-        className="absolute inset-0 cursor-default bg-black/45 backdrop-blur-sm"
-        onClick={() => setOpen(false)}
-      />
+    <AnimatePresence>
+      {open && (
+        <div className="fixed inset-0 z-[100] flex items-start justify-center px-4 pt-[12vh]">
+          <motion.button
+            type="button"
+            aria-label="Close command menu"
+            className="absolute inset-0 cursor-default bg-black/45 backdrop-blur-sm"
+            onClick={() => setOpen(false)}
+            initial={reduce ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={reduce ? undefined : { opacity: 0 }}
+            transition={{ duration: reduce ? 0 : 0.18 }}
+          />
 
-      <Command
-        label="Command menu"
-        loop
-        className="relative w-full max-w-lg overflow-hidden rounded-2xl border border-border bg-background shadow-2xl"
-      >
+          <motion.div
+            className="relative w-full max-w-lg overflow-hidden rounded-2xl border border-border bg-background shadow-2xl"
+            initial={reduce ? false : { opacity: 0, y: 10, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={reduce ? undefined : { opacity: 0, y: 6, scale: 0.99 }}
+            transition={{
+              duration: reduce ? 0 : 0.2,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
+            <Command label="Command menu" loop>
         <div className="flex items-center gap-3 border-b border-border px-4">
           <Search className="size-4 shrink-0 text-muted-foreground" />
           <Command.Input
@@ -204,7 +216,10 @@ export default function CommandMenu() {
           <span>↵ open</span>
           <span>esc close</span>
         </div>
-      </Command>
-    </div>
+            </Command>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
   );
 }

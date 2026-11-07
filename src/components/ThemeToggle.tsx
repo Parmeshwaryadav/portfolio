@@ -13,7 +13,14 @@ export default function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return <span className="size-9" />;
+    return (
+      <span
+        aria-hidden
+        className="grid size-9 place-items-center text-muted-foreground"
+      >
+        <Sun className="size-4 opacity-60" />
+      </span>
+    );
   }
 
   const isDark = resolvedTheme === "dark";
@@ -23,7 +30,7 @@ export default function ThemeToggle() {
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label="Toggle theme"
-      className="grid size-9 cursor-pointer place-items-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+      className="press grid size-9 cursor-pointer place-items-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
     >
       {isDark ? <Sun className="size-4" /> : <Moon className="size-4" />}
     </button>

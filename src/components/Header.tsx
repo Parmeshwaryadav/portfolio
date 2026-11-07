@@ -18,8 +18,8 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 -mx-6 bg-background/80 px-6 backdrop-blur-md sm:-mx-8 sm:px-8">
-      <nav className="flex items-center justify-between py-7">
-        <ul className="flex items-center gap-6 sm:gap-8">
+      <nav className="flex items-center justify-between gap-2 py-7">
+        <ul className="flex items-center gap-4 sm:gap-8">
           {navLinks.map((nav) => {
             const active =
               nav.href === "/"
@@ -33,7 +33,7 @@ export default function Header() {
                   aria-current={active ? "page" : undefined}
                   data-active={active ? "true" : undefined}
                   className={cn(
-                    "link-underline font-mono text-[15px] tracking-tight transition-colors",
+                    "link-underline font-mono text-[13px] tracking-tight transition-colors sm:text-[15px]",
                     active
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground"
@@ -50,7 +50,7 @@ export default function Header() {
             type="button"
             onClick={() => window.dispatchEvent(new Event("open-command-menu"))}
             aria-label="Open command menu"
-            className="inline-flex cursor-pointer items-center gap-1.5 rounded-full px-2.5 py-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+            className="press hidden cursor-pointer items-center gap-1.5 rounded-full px-2.5 py-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground sm:inline-flex"
           >
             <Search className="size-4" />
             <kbd className="hidden font-mono text-[10px] tracking-wide sm:inline">

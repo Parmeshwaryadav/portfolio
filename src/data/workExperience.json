@@ -3,7 +3,6 @@
     {
       "company": "Brookfield Asset Management",
       "link": "https://bam.brookfield.com/",
-      "logo": "/brookfield_logo.png",
       "logoBg": "#0a3d62",
       "initial": "B",
       "roles": [
@@ -20,7 +19,6 @@
     {
       "company": "Morgan Stanley | Investment Management",
       "link": "https://www.morganstanley.com/im.us.html",
-      "logo": "/ms_logo.png",
       "logoBg": "#002b5c",
       "initial": "MS",
       "roles": [
@@ -37,15 +35,13 @@
     {
       "company": "Bureau Veritas",
       "link": "https://www.bureauveritas.com/",
-      "logo": "/bv_logo.png",
       "logoBg": "#002b5c",
       "initial": "BV",
       "roles": [
         {
           "title": "Salesforce Administrator",
           "duration": "Jul 2021 - May 2023",
-          "highlights": [
-          ]
+          "highlights": []
         }
       ]
     }
