@@ -5,7 +5,7 @@ export default function Skills() {
   return (
     <Reveal>
       <section>
-        <h2 className="mb-5 font-mono text-2xl font-bold leading-[1.15] tracking-tight sm:text-3xl">
+        <h2 className="mb-5 font-mono text-xl font-bold leading-[1.15] tracking-tight sm:text-2xl">
           skills
         </h2>
         <ul className="flex flex-wrap gap-2">

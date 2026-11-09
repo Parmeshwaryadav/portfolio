@@ -7,6 +7,7 @@ import { Command } from "cmdk";
 import { useTheme } from "next-themes";
 import {
   Check,
+  Compass,
   Copy,
   FolderKanban,
   Home,
@@ -23,6 +24,7 @@ const pages = [
   { label: "Home", href: "/", icon: Home },
   { label: "Projects", href: "/projects", icon: FolderKanban },
   { label: "Blog", href: "/blogs", icon: PenLine },
+  { label: "Life", href: "/life", icon: Compass },
   { label: "Contact", href: "/contact", icon: Mail },
 ];
 

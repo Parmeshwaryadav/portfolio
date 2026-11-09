@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import data from "@/data/workExperience.json";
 import { cn } from "@/lib/utils";
@@ -59,20 +60,25 @@ export default function WorkExperience() {
                 {data.experience.map((exp, idx) => (
                   <li
                     key={exp.company}
-                    className="relative flex gap-4 pb-8 last:pb-0"
+                    className="relative flex gap-5 pb-10 last:pb-0"
                   >
                     {idx !== data.experience.length - 1 && (
-                      <span className="absolute top-12 bottom-0 left-5 w-px bg-border" />
+                      <span className="absolute top-14 bottom-0 left-6 w-px bg-border sm:top-16 sm:left-7" />
                     )}
                     <Link
                       href={exp.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative z-10 mt-0.5 grid size-10 shrink-0 place-items-center rounded-full text-[11px] font-semibold tracking-wide text-white shadow-sm transition-transform duration-300 ease-soft hover:scale-105 motion-reduce:transition-none"
-                      style={{ background: exp.logoBg }}
+                      className="relative z-10 mt-0.5 size-12 shrink-0 overflow-hidden rounded-md shadow-sm ring-1 ring-black/10 transition-transform duration-300 ease-soft hover:scale-105 motion-reduce:transition-none sm:size-14 dark:ring-white/10"
                       aria-label={exp.company}
                     >
-                      {exp.initial}
+                      <Image
+                        src={exp.logo}
+                        alt=""
+                        width={160}
+                        height={160}
+                        className="size-full object-cover"
+                      />
                     </Link>
                     <div className="min-w-0 flex-1 pt-1">
                       <h2 className="text-[15px] font-semibold">
@@ -118,10 +124,16 @@ export default function WorkExperience() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={exit}
                 transition={transition}
-                className="flex gap-4"
+                className="flex gap-5"
               >
-                <div className="grid size-10 shrink-0 place-items-center rounded-full border border-border bg-muted text-sm font-semibold">
-                  ∞
+                <div className="size-12 shrink-0 overflow-hidden rounded-md shadow-sm ring-1 ring-black/10 sm:size-14 dark:ring-white/10">
+                  <Image
+                    src={data.education[0].logo}
+                    alt=""
+                    width={160}
+                    height={160}
+                    className="size-full object-cover"
+                  />
                 </div>
                 <div className="min-w-0 flex-1 pt-1">
                   {data.education.map((item) => (

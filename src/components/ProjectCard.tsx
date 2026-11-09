@@ -15,7 +15,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   const external = href.startsWith("http");
 
   return (
-    <article className="group">
+    <article className="group flex h-full flex-col">
       {project.image && (
         <Link
           href={href}
@@ -50,7 +50,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         </ul>
       )}
       {project.links && project.links.length > 0 && (
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-auto flex flex-wrap gap-2 pt-4">
           {project.links
             .filter((link) => link.href)
             .map((link) => (

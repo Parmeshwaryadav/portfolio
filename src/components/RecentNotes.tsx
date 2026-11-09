@@ -7,7 +7,7 @@ export default function RecentNotes() {
   return (
     <section>
       <div className="mb-8 flex items-end justify-between gap-4">
-        <h2 className="font-mono text-2xl font-bold leading-[1.15] tracking-tight sm:text-3xl">
+        <h2 className="font-mono text-xl font-bold leading-[1.15] tracking-tight sm:text-2xl">
           recent posts
         </h2>
         <Link

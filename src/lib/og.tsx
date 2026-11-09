@@ -3,7 +3,7 @@ import { site } from "./site";
 
 export const ogSize = { width: 1200, height: 630 };
 export const ogContentType = "image/png";
-export const ogAlt = `${site.name} — ${site.role}`;
+export const ogAlt = site.name;
 
 export function renderOgImage() {
   return new ImageResponse(
@@ -39,7 +39,7 @@ export function renderOgImage() {
               background: "#b45309",
             }}
           />
-          parmeshwar.dev
+          parmeshwar
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "26px" }}>
@@ -51,16 +51,6 @@ export function renderOgImage() {
             }}
           >
             {site.name}
-          </div>
-          <div
-            style={{
-              fontSize: "34px",
-              lineHeight: 1.35,
-              maxWidth: "860px",
-              color: "#6d675c",
-            }}
-          >
-            {`${site.role}. Building calm web tools and writing about the craft.`}
           </div>
         </div>
 

@@ -1,0 +1,96 @@
+{
+  "intro": "Most of my week lives in screens. This is the rest of it — the pitch, the road, and whatever book happens to be open.",
+  "hobbies": [
+    {
+      "name": "football",
+      "emoji": "⚽",
+      "note": "Sunday league, no Slack."
+    },
+    {
+      "name": "travel",
+      "emoji": "✈️",
+      "note": "New city, same notebook."
+    },
+    {
+      "name": "reading",
+      "emoji": "📚",
+      "note": "One book at a time — usually two."
+    },
+    {
+      "name": "tinkering",
+      "emoji": "🔧",
+      "note": "Small tools, sharp edges."
+    }
+  ],
+  "trips": [
+    {
+      "place": "pondicherry",
+      "when": "september 2026",
+      "photos": [
+        { "src": "/life/trip/pondicherry/IMG_0756.jpg", "width": 1200, "height": 1600 },
+        { "src": "/life/trip/pondicherry/IMG_0786.jpg", "width": 1200, "height": 1600 },
+        { "src": "/life/trip/pondicherry/IMG_0835.jpg", "width": 1200, "height": 1600 },
+        { "src": "/life/trip/pondicherry/IMG_0846.jpg", "width": 1200, "height": 1600 },
+        { "src": "/life/trip/pondicherry/IMG_0906.jpg", "width": 1600, "height": 1200 },
+        { "src": "/life/trip/pondicherry/IMG_1248.jpg", "width": 1200, "height": 1600 },
+        { "src": "/life/trip/pondicherry/IMG_1286.jpg", "width": 1200, "height": 1600 },
+        { "src": "/life/trip/pondicherry/IMG_1287.jpg", "width": 1200, "height": 1600 },
+        { "src": "/life/trip/pondicherry/IMG_1366.jpg", "width": 1600, "height": 1200 },
+        { "src": "/life/trip/pondicherry/IMG_1371.jpg", "width": 1600, "height": 1200 },
+        { "src": "/life/trip/pondicherry/IMG_1496.jpg", "width": 1600, "height": 1200 },
+        { "src": "/life/trip/pondicherry/IMG_1551.jpg", "width": 1200, "height": 1600 },
+        { "src": "/life/trip/pondicherry/IMG_1568.jpg", "width": 1600, "height": 1200 },
+        { "src": "/life/trip/pondicherry/IMG_1585.jpg", "width": 1200, "height": 1600 }
+      ]
+    }
+  ],
+  "music": {
+    "name": "PEACEFUL",
+    "note": "the soundtrack to commutes, matchdays, and late-night builds.",
+    "playlistUrl": "https://open.spotify.com/playlist/0pbpynKA0fiXgASPLUHjk4",
+    "embedUrl": "https://open.spotify.com/embed/playlist/0pbpynKA0fiXgASPLUHjk4?utm_source=generator",
+    "cover": "/life/spotify-cover.jpg"
+  },
+  "reading": {
+    "books": [
+      {
+        "title": "The Art of Doing Science and Engineering",
+        "author": "Richard Hamming",
+        "note": "The chapter on n-dimensional space rearranged how I think about abstraction.",
+        "url": "https://press.stripe.com/the-art-of-doing-science-and-engineering"
+      },
+      {
+        "title": "Thinking in Systems",
+        "author": "Donella Meadows",
+        "note": "The clearest explanation of why good people produce bad outcomes.",
+        "url": "https://www.goodreads.com/book/show/3828902-thinking-in-systems"
+      },
+      {
+        "title": "The Design of Everyday Things",
+        "author": "Don Norman",
+        "note": "Makes you angry at every door handle, in a useful way.",
+        "url": "https://www.hachettebookgroup.com/titles/don-norman/the-design-of-everyday-things/9780465050659/"
+      }
+    ],
+    "articles": [
+      {
+        "title": "Choose Boring Technology",
+        "source": "Dan McKinley",
+        "note": "The essay I send to anyone who wants to rewrite everything.",
+        "url": "https://mcfunley.com/choose-boring-technology"
+      },
+      {
+        "title": "How to Do Great Work",
+        "source": "Paul Graham",
+        "note": "Long, but the section on curiosity is worth the whole thing.",
+        "url": "https://paulgraham.com/greatwork.html"
+      },
+      {
+        "title": "The Grug Brained Developer",
+        "source": "grugbrain.dev",
+        "note": "The funniest honest thing written about software complexity.",
+        "url": "https://grugbrain.dev/"
+      }
+    ]
+  }
+}

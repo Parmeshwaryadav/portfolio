@@ -2,9 +2,22 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Search } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { cn } from "@/lib/utils";
+
+function useIsMac() {
+  const [isMac, setIsMac] = useState(false);
+
+  useEffect(() => {
+    const nav = navigator as Navigator & { userAgentData?: { platform?: string } };
+    const platform = nav.userAgentData?.platform ?? nav.platform ?? "";
+    setIsMac(/mac|iphone|ipad|ipod/i.test(platform));
+  }, []);
+
+  return isMac;
+}
 
 const navLinks = [
   { name: "home", href: "/" },
@@ -15,6 +28,7 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
+  const isMac = useIsMac();
 
   return (
     <header className="sticky top-0 z-50 -mx-6 bg-background/80 px-6 backdrop-blur-md sm:-mx-8 sm:px-8">
@@ -54,7 +68,7 @@ export default function Header() {
           >
             <Search className="size-4" />
             <kbd className="hidden font-mono text-[10px] tracking-wide sm:inline">
-              ⌘K
+              {isMac ? "⌘K" : "Ctrl K"}
             </kbd>
           </button>
           <ThemeToggle />

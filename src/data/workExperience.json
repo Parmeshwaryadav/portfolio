@@ -3,8 +3,7 @@
     {
       "company": "Brookfield Asset Management",
       "link": "https://bam.brookfield.com/",
-      "logoBg": "#0a3d62",
-      "initial": "B",
+      "logo": "/logos/brookfield.png",
       "roles": [
         {
           "title": "Analyst",
@@ -19,8 +18,7 @@
     {
       "company": "Morgan Stanley | Investment Management",
       "link": "https://www.morganstanley.com/im.us.html",
-      "logoBg": "#002b5c",
-      "initial": "MS",
+      "logo": "/logos/morgan-stanley.png",
       "roles": [
         {
           "title": "Associate Business Analyst & CRM",
@@ -35,8 +33,7 @@
     {
       "company": "Bureau Veritas",
       "link": "https://www.bureauveritas.com/",
-      "logoBg": "#002b5c",
-      "initial": "BV",
+      "logo": "/logos/bureau-veritas.png",
       "roles": [
         {
           "title": "Salesforce Administrator",
@@ -50,6 +47,7 @@
     {
       "school": "Mumbai University",
       "link": "https://www.mu.ac.in/",
+      "logo": "/logos/mumbai-university.png",
       "detail": "Bachelor of Management Studies (BMS)",
       "duration": "2017 — 2020",
       "note": ""

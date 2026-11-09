@@ -5,6 +5,7 @@ import HeroPhoto from "@/components/HeroPhoto";
 import RecentNotes from "@/components/RecentNotes";
 import Skills from "@/components/Skills";
 import CurrentlyReading from "@/components/CurrentlyReading";
+import WaveEmoji from "@/components/eggs/WaveEmoji";
 import Reveal from "@/components/Reveal";
 import { FileText } from "lucide-react";
 
@@ -17,10 +18,7 @@ export default function Home() {
             hi parmeshwar
             <br />
             <span className="whitespace-nowrap">
-              here.{" "}
-              <span className="inline-block origin-[70%_70%] animate-[wave_1.6s_ease-in-out_infinite]">
-                👋
-              </span>
+              here. <WaveEmoji />
             </span>
           </h1>
           <p className="mt-4 text-[17px] font-medium">
@@ -30,24 +28,6 @@ export default function Home() {
           Business Analyst by profession, tech enthusiast and tinkerer by obsession. Building web tools to automate my own life (and yours), while trying not to pull a muscle playing football.
           </p>
           <CurrentlyReading />
-          <p className="mt-5 text-[15px] leading-relaxed">
-            For work, start on{" "}
-            <a
-              href="https://linkedin.com/in/parmeshwaryadav"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hairline"
-            >
-              LinkedIn
-            </a>
-            .
-            <br />
-            For a kickabout ⚽, the{" "}
-            <a href="mailto:yadavparmeshwar342@gmail.com" className="hairline">
-              inbox
-            </a>{" "}
-            is open.
-          </p>
           <div className="mt-7 flex flex-wrap items-center gap-2">
             <a
               href="https://linkedin.com/in/parmeshwaryadav"

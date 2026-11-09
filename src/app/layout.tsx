@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
 import CommandMenu from "@/components/CommandMenu";
+import EggLayer from "@/components/eggs/EggLayer";
 import { site } from "@/lib/site";
 
 const inter = Inter({
@@ -23,8 +24,8 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.role}`,
-    template: `%s — ${site.name}`,
+    default: site.name,
+    template: site.name,
   },
   description: site.description,
   keywords: [
@@ -47,12 +48,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: site.url,
     siteName: site.name,
-    title: `${site.name} — ${site.role}`,
+    title: site.name,
     description: site.description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} — ${site.role}`,
+    title: site.name,
     description: site.description,
   },
 };
@@ -65,7 +66,12 @@ const personSchema = {
   email: `mailto:${site.email}`,
   jobTitle: "Business Analyst",
   description: site.description,
-  sameAs: [site.links.github, site.links.linkedin, site.links.goodreads],
+  sameAs: [
+    site.links.github,
+    site.links.linkedin,
+    site.links.x,
+    site.links.goodreads,
+  ],
 };
 
 export default function RootLayout({
@@ -83,8 +89,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
         <Providers>
+          <EggLayer />
           <CommandMenu />
-          <div className="mx-auto flex min-h-svh max-w-2xl flex-col px-6 sm:px-8">
+          <div className="mx-auto flex min-h-svh max-w-[46rem] flex-col px-6 sm:px-8">
             <Header />
             <main className="grow">{children}</main>
             <Footer />
