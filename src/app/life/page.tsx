@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import data from "@/data/life.json";
-import CurrentlyReading from "@/components/CurrentlyReading";
+import BookShelf from "@/components/life/BookShelf";
 import MusicSection from "@/components/life/MusicSection";
 import PhotoGallery from "@/components/life/PhotoGallery";
 import ReadingList from "@/components/life/ReadingList";
@@ -24,24 +24,18 @@ export default function LifePage() {
           <p className="mt-4 max-w-md text-[15px] leading-relaxed text-muted-foreground">
             {data.intro}
           </p>
-        </Reveal>
-
-        <ul className="mt-10 flex flex-col gap-3">
-          {data.hobbies.map((hobby) => (
-            <li
-              key={hobby.name}
-              className="flex flex-wrap items-baseline gap-x-3 gap-y-1.5 border-b border-border/70 pb-3 last:border-0 last:pb-0"
-            >
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 font-mono text-xs tracking-tight">
+          <ul className="mt-6 flex flex-wrap items-center gap-2">
+            {data.hobbies.map((hobby) => (
+              <li
+                key={hobby.name}
+                className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1 font-mono text-xs tracking-tight text-muted-foreground"
+              >
                 <span aria-hidden="true">{hobby.emoji}</span>
                 {hobby.name}
-              </span>
-              <span className="text-sm text-muted-foreground">
-                {hobby.note}
-              </span>
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </section>
 
       <section>
@@ -96,7 +90,7 @@ export default function LifePage() {
           </p>
         </Reveal>
 
-        <CurrentlyReading className="mt-6" />
+        <BookShelf className="mt-8" />
         <ReadingList />
       </section>
     </article>

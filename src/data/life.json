@@ -3,23 +3,23 @@
   "hobbies": [
     {
       "name": "football",
-      "emoji": "⚽",
-      "note": "Sunday league, no Slack."
+      "emoji": "⚽"
     },
     {
       "name": "travel",
-      "emoji": "✈️",
-      "note": "New city, same notebook."
+      "emoji": "✈️"
     },
     {
       "name": "reading",
-      "emoji": "📚",
-      "note": "One book at a time — usually two."
+      "emoji": "📚"
+    },
+    {
+      "name": "music",
+      "emoji": "🎧"
     },
     {
       "name": "tinkering",
-      "emoji": "🔧",
-      "note": "Small tools, sharp edges."
+      "emoji": "🔧"
     }
   ],
   "trips": [
@@ -57,19 +57,28 @@
         "title": "The Art of Doing Science and Engineering",
         "author": "Richard Hamming",
         "note": "The chapter on n-dimensional space rearranged how I think about abstraction.",
-        "url": "https://press.stripe.com/the-art-of-doing-science-and-engineering"
+        "url": "https://press.stripe.com/the-art-of-doing-science-and-engineering",
+        "cover": "/life/books/hamming.jpg",
+        "tone": "#1f5c3a",
+        "ink": "#f2e8cf"
       },
       {
         "title": "Thinking in Systems",
         "author": "Donella Meadows",
         "note": "The clearest explanation of why good people produce bad outcomes.",
-        "url": "https://www.goodreads.com/book/show/3828902-thinking-in-systems"
+        "url": "https://www.goodreads.com/book/show/3828902-thinking-in-systems",
+        "cover": "/life/books/thinking-in-systems.jpg",
+        "tone": "#c05a2e",
+        "ink": "#fbeee2"
       },
       {
         "title": "The Design of Everyday Things",
         "author": "Don Norman",
         "note": "Makes you angry at every door handle, in a useful way.",
-        "url": "https://www.hachettebookgroup.com/titles/don-norman/the-design-of-everyday-things/9780465050659/"
+        "url": "https://www.hachettebookgroup.com/titles/don-norman/the-design-of-everyday-things/9780465050659/",
+        "cover": "/life/books/design-of-everyday-things.jpg",
+        "tone": "#2a2a2c",
+        "ink": "#f0e7dd"
       }
     ],
     "articles": [
