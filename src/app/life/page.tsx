@@ -85,8 +85,7 @@ export default function LifePage() {
             reading
           </h2>
           <p className="mt-2 max-w-md text-sm text-muted-foreground">
-            Books and links I keep recommending. The current book comes straight
-            from Goodreads.
+            Books I keep recommending:
           </p>
         </Reveal>
 
