@@ -29,27 +29,10 @@ const navLinks = [
 export default function Header() {
   const pathname = usePathname();
   const isMac = useIsMac();
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 -mx-6 border-b px-6 backdrop-blur-md transition-[background-color,border-color] duration-300 sm:-mx-8 sm:px-8",
-        scrolled
-          ? "border-border/80 bg-background/85"
-          : "border-transparent bg-background/60"
-      )}
-    >
-      <nav className="flex items-center justify-between gap-2 py-6 sm:py-7">
+    <header className="sticky top-0 z-50 -mx-6 bg-background/80 px-6 backdrop-blur-md sm:-mx-8 sm:px-8">
+      <nav className="flex items-center justify-between gap-2 py-7">
         <ul className="flex items-center gap-4 sm:gap-8">
           {navLinks.map((nav) => {
             const active =

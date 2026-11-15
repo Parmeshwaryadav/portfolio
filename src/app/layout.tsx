@@ -82,7 +82,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        id="top"
         className={`${inter.variable} ${plexMono.variable} min-h-svh antialiased`}
       >
         <script

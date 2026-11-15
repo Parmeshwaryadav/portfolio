@@ -7,7 +7,6 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import data from "@/data/workExperience.json";
 import { cn } from "@/lib/utils";
 import Reveal from "./Reveal";
-import SectionHeading from "./SectionHeading";
 
 export default function WorkExperience() {
   const [tab, setTab] = useState<"work" | "education">("work");
@@ -20,8 +19,7 @@ export default function WorkExperience() {
   return (
     <Reveal>
       <section>
-        <SectionHeading eyebrow="career" title="experience" />
-        <div className="relative mb-6 grid grid-cols-2 rounded-full border border-border/70 bg-muted p-1 text-sm">
+        <div className="relative mb-6 grid grid-cols-2 rounded-full bg-muted p-1 text-sm">
           {(["work", "education"] as const).map((item) => (
             <button
               key={item}
@@ -36,11 +34,11 @@ export default function WorkExperience() {
             >
               {tab === item &&
                 (reduce ? (
-                  <span className="absolute inset-0 -z-10 rounded-full bg-background shadow-sm ring-1 ring-border/60" />
+                  <span className="absolute inset-0 -z-10 rounded-full bg-background shadow-sm" />
                 ) : (
                   <motion.span
                     layoutId="work-tab"
-                    className="absolute inset-0 -z-10 rounded-full bg-background shadow-sm ring-1 ring-border/60"
+                    className="absolute inset-0 -z-10 rounded-full bg-background shadow-sm"
                     transition={{ type: "spring", stiffness: 380, damping: 32 }}
                   />
                 ))}
@@ -49,7 +47,7 @@ export default function WorkExperience() {
           ))}
         </div>
 
-        <div className="panel overflow-hidden px-4 py-5 sm:px-5 sm:py-6">
+        <div className="rounded-2xl border border-border px-4 py-5 sm:px-5">
           <AnimatePresence mode="wait">
             {tab === "work" ? (
               <motion.ol
